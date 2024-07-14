@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Pedido>
+@{
+    ViewData["Title"] = "ReportePorBodega";
+}
+
+<h1>ReportePorBodega</h1>
+
+<form asp-controller="Reportes" asp-action="ReportePorBodega" method="get">
+    <div class="form-group">
+        <label for="bodegaId" class="control-label"></label>
+        <select name="bodegaId" class="form-control" id="bodegaId">
+            @foreach (var producto in (ViewData["Bodegas"] as List<int> ?? new List<int>()))
+            {
+                <option value="@producto">@producto</option>
+            }
+        </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostoSinIVA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostoTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto!.Nombre)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostoSinIVA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostoTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto!.Nombre)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Proyecto1.Models.Cliente>
+
+@{
+    ViewData["Title"] = "BuscarCliente";
+}
+
+<h1>BuscarCliente</h1>
+
+<form asp-controller="Cliente" asp-action="BuscarCliente" method="get">
+    <div class="form-group">
+        <label for="idbuscarcliente">buscar:</label>
+        <input type="text" name="idbuscarcliente" class="form-control" id="idbuscarcliente" />
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar cliente</button>
+</form>
+
+
+@if (Model != null && Model.ToList().Count > 0)
+{
+    <h2></h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Identificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NombreCompleto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Provincia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Canton)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Distrito)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CantidadDineroTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CantidadDineroUltimoAno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CantidadDineroUltimos6Meses)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Identificacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreCompleto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Provincia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Canton)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Distrito)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadDineroTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadDineroUltimoAno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CantidadDineroUltimos6Meses)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p>No existe un cliente con ese ID .</p>
+}

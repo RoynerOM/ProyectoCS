@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Proyecto1.Models.Inventario>
+
+@{
+    ViewData["Title"] = "BuscarArticulo";
+}
+<h1>BuscarArticulo</h1>
+
+<form asp-controller="Inventario" asp-action="BuscarArticulo" method="get">
+    <div class="form-group">
+        <label for="idBuscararticulo">Buscar:</label>
+        <input type="text" name="idBuscararticulo" class="form-control" id="idBuscararticulo" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
+@if (Model != null && Model.ToList().Count > 0)
+{
+    <h2></h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BodegaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaIngreso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaVencimiento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoLicor)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model ?? new List<Inventario>())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BodegaId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaIngreso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaVencimiento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoLicor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p>No existe un artículo con este ID.</p>
+}

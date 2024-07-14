@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Reporte>
+@{
+    ViewData["Title"] = "ReporteMasPedidos";
+}
+
+<h1>ReporteMasPedidos</h1>
+
+<form asp-controller="Reportes" asp-action="ReporteMasPedidos" method="get">
+    <div class="form-group">
+        <label for="anno">Año</label>
+        <input type="number" name="anno" class="form-control" id="anno" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="mes">Mes:</label>
+        <select class="form-control" name="mes" id="mes">
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Setiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalMonto)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClienteId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalMonto)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

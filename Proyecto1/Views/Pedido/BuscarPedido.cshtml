@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Proyecto1.Models.Pedido>
+
+@{
+    ViewData["Title"] = "BuscarPedido";
+}
+
+<h1>BuscarPedido</h1>
+
+<form asp-controller="Pedido" asp-action="BuscarPedido" method="get">
+    <div class="form-group">
+        <label for="pedidoId">Buscar:</label>
+        <input type="text" name="pedidoId" class="form-control" id="pedidoId" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
+
+@if (Model != null && Model.ToList().Count > 0)
+{
+    <h2></h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CostoSinIVA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CostoTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producto!.Nombre)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cantidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CostoSinIVA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CostoTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producto!.Nombre)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p>No existe un Pedido con este ID.</p>
+}

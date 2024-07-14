@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Pedido>
+@{
+    ViewData["Title"] = "ReportePorCliente";
+}
+
+<h1>ReportePorCliente</h1>
+
+<form asp-controller="Reportes" asp-action="ReportePorCliente" method="get">
+    <div class="form-group">
+        <label for="inicio">Fecha Incio:</label>
+        <input type="datetime" name="inicio" class="form-control" id="inicio" />
+    </div>
+    <div class="form-group">
+        <label for="final">Fecha Final:</label>
+        <input type="datetime" name="final" class="form-control" id="final" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostoSinIVA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostoTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto!.Nombre)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostoSinIVA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostoTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto!.Nombre)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

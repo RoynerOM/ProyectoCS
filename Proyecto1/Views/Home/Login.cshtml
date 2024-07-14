@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" xmlns="http://www.w3.org/1999/xhtml">
+    <style>
+        .net-box {
+            padding: 40px 80px;
+            box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+            border-top: 2px solid #0091ff;
+            /*     min-width: 100%; */
+            margin: 60px 0;
+        }
+
+        .flex-net-center {
+            justify-content: center !important;
+        }
+
+        .net-input {
+            display: flex;
+            justify-content: space-between;
+            max-width: 420px;
+            margin: 24px auto 0 auto;
+        }
+
+            .net-input input {
+                flex-grow: 1;
+                background-color: #f9f9f9;
+                border-width: 0 0 1px;
+                border-color: #ccc;
+                padding: 16px;
+                font-size: 14px;
+                font-family: 'Raleway', sans-serif;
+                line-height: 16px;
+                color: #666;
+            }
+
+        .net-terms {
+            display: flex;
+            max-width: 420px;
+            margin: 24px auto 0 auto;
+        }
+
+            .net-terms span {
+                font-size: 10px;
+                line-height: 14px;
+                font-family: 'Raleway', sans-serif;
+                color: #666;
+                margin: 0 0 0 10px;
+                font-weight: 400;
+                letter-spacing: 0;
+            }
+
+        .net-container-check {
+            display: flex;
+            align-self: flex-start;
+            padding: 0 14px 14px 0;
+            position: relative;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin-bottom: .5rem;
+        }
+
+            .net-container-check input {
+                position: absolute;
+                bottom: 0;
+                opacity: 0;
+                cursor: pointer;
+                height: 1px;
+                width: 1px;
+            }
+
+        .net-input button {
+            background: 0 0;
+            border: 0;
+            cursor: pointer;
+            padding: 0;
+            margin: 0 0 0 19px;
+        }
+
+        .net-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 14px;
+            width: 14px;
+            border-radius: 2px;
+            background-color: #eee;
+            margin: 0;
+        }
+
+        .net-icons {
+            font-size: 24px;
+            display: inline-block;
+            color: #0091ff;
+        }
+
+        .net-text {
+            font-size: 19px;
+            font-family: 'Raleway', sans-serif;
+            line-height: 24px;
+            color: #111;
+            text-align: center;
+            display: block;
+        }
+
+        .net-message-ok {
+            padding: 100px 0;
+            display: none;
+        }
+
+        body {
+            margin: 0 auto;
+            /* width: 50%;*/
+        }
+    </style>
+</head>
+<div class="net-box">
+    <span class="net-text">
+        <b>Login Cliente</b><br>
+    </span>
+    <form asp-controller="Home" asp-action="Login" method="post">
+        <div class="net-input">
+            <input type="text" name="id" id="id" placeholder="Digite su Identificación" required="">
+        </div>
+        <div class="net-input">
+            <input type="password" name="contrasena" id="contrasena" placeholder="Digite su contraseña" required="">
+        </div>
+        <div class="net-input flex-net-center">
+            <button type="submit" id="submit-newsletter">
+                <i class="net-icons fas fa-share"></i>
+            </button>
+        </div>
+    </form>
+</div>
+
