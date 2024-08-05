@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proyecto1", "Proyecto1\Proyecto1.csproj", "{F271C377-BD21-4C87-B643-538198F5F8DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{F271C377-BD21-4C87-B643-538198F5F8DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto2.API", "Proyecto2.API\Proyecto2.API.csproj", "{6564598B-13A3-4347-8207-33F794AD1B8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servidor.API", "Servidor.API\Servidor.API.csproj", "{6564598B-13A3-4347-8207-33F794AD1B8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
